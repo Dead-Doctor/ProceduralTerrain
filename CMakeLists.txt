@@ -3,7 +3,7 @@ project(ProceduralTerrain)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ProceduralTerrain main.cpp shaderClass.h shaderClass.cpp VBO.cpp VBO.h EBO.cpp EBO.h VAO.cpp VAO.h Texture.cpp Texture.h)
+add_executable(ProceduralTerrain main.cpp Shader.h Shader.cpp VBO.cpp VBO.h EBO.cpp EBO.h VAO.cpp VAO.h Texture.cpp Texture.h Camera.cpp Camera.h)
 
 add_subdirectory(glfw)
 add_subdirectory(glad)

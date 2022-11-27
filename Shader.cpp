@@ -1,4 +1,4 @@
-#include "shaderClass.h"
+#include "Shader.h"
 string readFile(const char *filename) {
     ifstream f(filename);
     string str;

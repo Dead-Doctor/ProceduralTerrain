@@ -5,11 +5,12 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 #include "stb/stb_image.h"
-#include "shaderClass.h"
+#include "Shader.h"
 #include "VAO.h"
 #include "VBO.h"
 #include "EBO.h"
 #include "Texture.h"
+#include "Camera.h"
 //#define SHOW_FPS
 
 #define WIDTH 800
@@ -76,20 +77,14 @@ int main() {
     VBO1.Unbind();
     EBO1.Unbind();
 
-    GLuint scaleUniform = glGetUniformLocation(shaderProgram.ID, "scale");
-
     // Texture
     Texture texture1("resources/textures/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     Texture::uv(shaderProgram, "tex0", 0);
 
     // Set Clear Color
     glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
-    // Clear Screen
-    glClear(GL_COLOR_BUFFER_BIT);
-    // Swap Screen Buffers to show drawn Buffer to the Screen
-    glfwSwapBuffers(window);
 
-    float rotation = 0.0f;
+    Camera camera(WIDTH, HEIGHT, glm::vec3(0.0f, 0.0f, 2.0f));
 
     // Main Loop
     int frame = 0;
@@ -104,30 +99,15 @@ int main() {
         cout << "FPS: " << 1.0 / deltaTime << std::endl;
 #endif //SHOW_FPS
         lastFrameTime = frameTime;
-        rotation += 45.0f * (float) deltaTime;
 
-        glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+        camera.inputs(window, deltaTime);
+
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         shaderProgram.Activate();
 
-        glm::mat4 model = glm::mat4(1.0);
-        glm::mat4 view = glm::mat4(1.0);
-        glm::mat4 proj = glm::mat4(1.0);
-        model = glm::rotate(model, glm::radians(rotation), glm::vec3(1.0f, 1.0f, 0.0f));
-        view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-        proj = glm::perspective(glm::radians(45.0f), (float)(WIDTH/HEIGHT), 0.1f, 100.0f);
+        camera.matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
-        int modelLoc = glGetUniformLocation(shaderProgram.ID, "model");
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-
-        int viewLoc = glGetUniformLocation(shaderProgram.ID, "view");
-        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-
-        int projLoc = glGetUniformLocation(shaderProgram.ID, "proj");
-        glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(proj));
-
-        glUniform1f(scaleUniform, (frame % 300) / 300.0);
         texture1.Bind();
 
         VAO1.Bind();

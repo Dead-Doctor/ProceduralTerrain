@@ -56,8 +56,8 @@ build CMakeFiles/ProceduralTerrain.dir/main.cpp.obj: CXX_COMPILER__ProceduralTer
   OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
   OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
 
-build CMakeFiles/ProceduralTerrain.dir/shaderClass.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/shaderClass.cpp || cmake_object_order_depends_target_ProceduralTerrain
-  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\shaderClass.cpp.obj.d
+build CMakeFiles/ProceduralTerrain.dir/Shader.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/Shader.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\Shader.cpp.obj.d
   FLAGS = -g
   INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
   OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
@@ -91,6 +91,13 @@ build CMakeFiles/ProceduralTerrain.dir/Texture.cpp.obj: CXX_COMPILER__Procedural
   OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
   OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
 
+build CMakeFiles/ProceduralTerrain.dir/Camera.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/Camera.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\Camera.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
+  OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProceduralTerrain
@@ -99,7 +106,7 @@ build CMakeFiles/ProceduralTerrain.dir/Texture.cpp.obj: CXX_COMPILER__Procedural
 #############################################
 # Link the executable ProceduralTerrain.exe
 
-build ProceduralTerrain.exe: CXX_EXECUTABLE_LINKER__ProceduralTerrain_Debug CMakeFiles/ProceduralTerrain.dir/main.cpp.obj CMakeFiles/ProceduralTerrain.dir/shaderClass.cpp.obj CMakeFiles/ProceduralTerrain.dir/VBO.cpp.obj CMakeFiles/ProceduralTerrain.dir/EBO.cpp.obj CMakeFiles/ProceduralTerrain.dir/VAO.cpp.obj CMakeFiles/ProceduralTerrain.dir/Texture.cpp.obj | glfw/src/libglfw3.a glad/libglad.a stb/libstb.a || glad/libglad.a glfw/src/libglfw3.a stb/libstb.a
+build ProceduralTerrain.exe: CXX_EXECUTABLE_LINKER__ProceduralTerrain_Debug CMakeFiles/ProceduralTerrain.dir/main.cpp.obj CMakeFiles/ProceduralTerrain.dir/Shader.cpp.obj CMakeFiles/ProceduralTerrain.dir/VBO.cpp.obj CMakeFiles/ProceduralTerrain.dir/EBO.cpp.obj CMakeFiles/ProceduralTerrain.dir/VAO.cpp.obj CMakeFiles/ProceduralTerrain.dir/Texture.cpp.obj CMakeFiles/ProceduralTerrain.dir/Camera.cpp.obj | glfw/src/libglfw3.a glad/libglad.a stb/libstb.a || glad/libglad.a glfw/src/libglfw3.a stb/libstb.a
   FLAGS = -g
   LINK_LIBRARIES = glfw/src/libglfw3.a  glad/libglad.a  stb/libstb.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
