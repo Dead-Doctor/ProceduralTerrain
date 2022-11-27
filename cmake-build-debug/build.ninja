@@ -47,15 +47,49 @@ cmake_ninja_workdir = D$:/Code/C++/ProceduralTerrain/cmake-build-debug/
 #############################################
 # Order-only phony target for ProceduralTerrain
 
-build cmake_object_order_depends_target_ProceduralTerrain: phony || CMakeFiles/ProceduralTerrain.dir
+build cmake_object_order_depends_target_ProceduralTerrain: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_stb
 
 build CMakeFiles/ProceduralTerrain.dir/main.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/main.cpp || cmake_object_order_depends_target_ProceduralTerrain
   DEP_FILE = CMakeFiles\ProceduralTerrain.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
   OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
   OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
-  TARGET_COMPILE_PDB = CMakeFiles\ProceduralTerrain.dir\
-  TARGET_PDB = ProceduralTerrain.pdb
+
+build CMakeFiles/ProceduralTerrain.dir/shaderClass.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/shaderClass.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\shaderClass.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
+  OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
+
+build CMakeFiles/ProceduralTerrain.dir/VBO.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/VBO.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\VBO.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
+  OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
+
+build CMakeFiles/ProceduralTerrain.dir/EBO.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/EBO.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\EBO.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
+  OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
+
+build CMakeFiles/ProceduralTerrain.dir/VAO.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/VAO.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\VAO.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
+  OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
+
+build CMakeFiles/ProceduralTerrain.dir/Texture.cpp.obj: CXX_COMPILER__ProceduralTerrain_Debug D$:/Code/C++/ProceduralTerrain/Texture.cpp || cmake_object_order_depends_target_ProceduralTerrain
+  DEP_FILE = CMakeFiles\ProceduralTerrain.dir\Texture.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glad/include -ID:/Code/C++/ProceduralTerrain/glm
+  OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProceduralTerrain.dir
 
 
 # =============================================================================
@@ -65,16 +99,15 @@ build CMakeFiles/ProceduralTerrain.dir/main.cpp.obj: CXX_COMPILER__ProceduralTer
 #############################################
 # Link the executable ProceduralTerrain.exe
 
-build ProceduralTerrain.exe: CXX_EXECUTABLE_LINKER__ProceduralTerrain_Debug CMakeFiles/ProceduralTerrain.dir/main.cpp.obj
+build ProceduralTerrain.exe: CXX_EXECUTABLE_LINKER__ProceduralTerrain_Debug CMakeFiles/ProceduralTerrain.dir/main.cpp.obj CMakeFiles/ProceduralTerrain.dir/shaderClass.cpp.obj CMakeFiles/ProceduralTerrain.dir/VBO.cpp.obj CMakeFiles/ProceduralTerrain.dir/EBO.cpp.obj CMakeFiles/ProceduralTerrain.dir/VAO.cpp.obj CMakeFiles/ProceduralTerrain.dir/Texture.cpp.obj | glfw/src/libglfw3.a glad/libglad.a stb/libstb.a || glad/libglad.a glfw/src/libglfw3.a stb/libstb.a
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = glfw/src/libglfw3.a  glad/libglad.a  stb/libstb.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProceduralTerrain.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\ProceduralTerrain.dir\
   TARGET_FILE = ProceduralTerrain.exe
   TARGET_IMPLIB = libProceduralTerrain.dll.a
-  TARGET_PDB = ProceduralTerrain.pdb
+  TARGET_PDB = ProceduralTerrain.exe.dbg
 
 
 #############################################
@@ -99,10 +132,771 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Code/C++/ProceduralTerrain/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for uninstall
+
+build glfw/uninstall: phony glfw/CMakeFiles/uninstall
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glfw/edit_cache: phony glfw/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\Code\C++\ProceduralTerrain -BD:\Code\C++\ProceduralTerrain\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/rebuild_cache: phony glfw/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/CMakeFiles/install.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/install: phony glfw/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/install/local: phony glfw/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/install/strip: phony glfw/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw\CMakeFiles\uninstall
+
+build glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P D:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/cmake_uninstall.cmake"
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Code/C++/ProceduralTerrain/glfw/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\init.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/input.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\input.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\monitor.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/platform.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\platform.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\vulkan.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\window.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\egl_context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_init.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\null_init.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\null_monitor.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_window.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\null_window.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\null_joystick.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_module.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_time.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_thread.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_init.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_joystick.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_monitor.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/win32_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\win32_window.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_Debug D$:/Code/C++/ProceduralTerrain/glfw/src/wgl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = glfw\src\CMakeFiles\glfw.dir\wgl_context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glfw/include -ID:/Code/C++/ProceduralTerrain/glfw/src -ID:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library glfw\src\libglfw3.a
+
+build glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug glfw/src/CMakeFiles/glfw.dir/context.c.obj glfw/src/CMakeFiles/glfw.dir/init.c.obj glfw/src/CMakeFiles/glfw.dir/input.c.obj glfw/src/CMakeFiles/glfw.dir/monitor.c.obj glfw/src/CMakeFiles/glfw.dir/platform.c.obj glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj glfw/src/CMakeFiles/glfw.dir/window.c.obj glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj glfw/src/CMakeFiles/glfw.dir/null_init.c.obj glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj glfw/src/CMakeFiles/glfw.dir/null_window.c.obj glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = glfw\src\libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build glfw/src/update_mappings: phony glfw/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw\src && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glfw/src/edit_cache: phony glfw/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw\src && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\Code\C++\ProceduralTerrain -BD:\Code\C++\ProceduralTerrain\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/src/rebuild_cache: phony glfw/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw\src && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/src/install: phony glfw/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw\src && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/src/install/local: phony glfw/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glfw\src && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/src/install/strip: phony glfw/src/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw\src\CMakeFiles\update_mappings
+
+build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\glfw\src && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P D:/Code/C++/ProceduralTerrain/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h"
+  DESC = Updating gamepad mappings from upstream repository
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Code/C++/ProceduralTerrain/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Order-only phony target for glad
+
+build cmake_object_order_depends_target_glad: phony || glad/CMakeFiles/glad.dir
+
+build glad/CMakeFiles/glad.dir/src/glad.c.obj: C_COMPILER__glad_Debug D$:/Code/C++/ProceduralTerrain/glad/src/glad.c || cmake_object_order_depends_target_glad
+  DEP_FILE = glad\CMakeFiles\glad.dir\src\glad.c.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/Code/C++/ProceduralTerrain/glad/include
+  OBJECT_DIR = glad\CMakeFiles\glad.dir
+  OBJECT_FILE_DIR = glad\CMakeFiles\glad.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Link the static library glad\libglad.a
+
+build glad/libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug glad/CMakeFiles/glad.dir/src/glad.c.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = glad\CMakeFiles\glad.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = glad\libglad.a
+  TARGET_PDB = glad.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build glad/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glad && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glad/edit_cache: phony glad/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glad/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glad && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\Code\C++\ProceduralTerrain -BD:\Code\C++\ProceduralTerrain\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glad/rebuild_cache: phony glad/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glad/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glad/CMakeFiles/install.util: CUSTOM_COMMAND glad/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glad && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glad/install: phony glad/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glad/CMakeFiles/install/local.util: CUSTOM_COMMAND glad/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glad && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glad/install/local: phony glad/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glad/CMakeFiles/install/strip.util: CUSTOM_COMMAND glad/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glad && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glad/install/strip: phony glad/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Code/C++/ProceduralTerrain/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build glm/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glm/edit_cache: phony glm/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glm/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\Code\C++\ProceduralTerrain -BD:\Code\C++\ProceduralTerrain\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glm/rebuild_cache: phony glm/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glm/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glm/CMakeFiles/install.util: CUSTOM_COMMAND glm/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glm/install: phony glm/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glm/CMakeFiles/install/local.util: CUSTOM_COMMAND glm/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glm/install/local: phony glm/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glm/CMakeFiles/install/strip.util: CUSTOM_COMMAND glm/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glm/install/strip: phony glm/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Code/C++/ProceduralTerrain/glm/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build glm/glm/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build glm/glm/edit_cache: phony glm/glm/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glm/glm/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\Code\C++\ProceduralTerrain -BD:\Code\C++\ProceduralTerrain\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glm/glm/rebuild_cache: phony glm/glm/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glm/glm/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glm/glm/CMakeFiles/install.util: CUSTOM_COMMAND glm/glm/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glm/glm/install: phony glm/glm/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glm/glm/CMakeFiles/install/local.util: CUSTOM_COMMAND glm/glm/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glm/glm/install/local: phony glm/glm/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glm/glm/CMakeFiles/install/strip.util: CUSTOM_COMMAND glm/glm/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\glm\glm && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glm/glm/install/strip: phony glm/glm/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Code/C++/ProceduralTerrain/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target stb
+
+
+#############################################
+# Order-only phony target for stb
+
+build cmake_object_order_depends_target_stb: phony || stb/CMakeFiles/stb.dir
+
+build stb/CMakeFiles/stb.dir/stb_image.cpp.obj: CXX_COMPILER__stb_Debug D$:/Code/C++/ProceduralTerrain/stb/stb_image.cpp || cmake_object_order_depends_target_stb
+  DEP_FILE = stb\CMakeFiles\stb.dir\stb_image.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = stb\CMakeFiles\stb.dir
+  OBJECT_FILE_DIR = stb\CMakeFiles\stb.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target stb
+
+
+#############################################
+# Link the static library stb\libstb.a
+
+build stb/libstb.a: CXX_STATIC_LIBRARY_LINKER__stb_Debug stb/CMakeFiles/stb.dir/stb_image.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = stb\CMakeFiles\stb.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = stb\libstb.a
+  TARGET_PDB = stb.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build stb/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\stb && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build stb/edit_cache: phony stb/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build stb/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\stb && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\Code\C++\ProceduralTerrain -BD:\Code\C++\ProceduralTerrain\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build stb/rebuild_cache: phony stb/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build stb/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build stb/CMakeFiles/install.util: CUSTOM_COMMAND stb/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\stb && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build stb/install: phony stb/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build stb/CMakeFiles/install/local.util: CUSTOM_COMMAND stb/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\stb && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build stb/install/local: phony stb/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build stb/CMakeFiles/install/strip.util: CUSTOM_COMMAND stb/all
+  COMMAND = cmd.exe /C "cd /D D:\Code\C++\ProceduralTerrain\cmake-build-debug\stb && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build stb/install/strip: phony stb/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
 build ProceduralTerrain: phony ProceduralTerrain.exe
+
+build glad: phony glad/libglad.a
+
+build glfw: phony glfw/src/libglfw3.a
+
+build libglad.a: phony glad/libglad.a
+
+build libglfw3.a: phony glfw/src/libglfw3.a
+
+build libstb.a: phony stb/libstb.a
+
+build stb: phony stb/libstb.a
+
+build uninstall: phony glfw/uninstall
+
+build update_mappings: phony glfw/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +906,49 @@ build ProceduralTerrain: phony ProceduralTerrain.exe
 #############################################
 # Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug
 
-build all: phony ProceduralTerrain.exe
+build all: phony ProceduralTerrain.exe glfw/all glad/all glm/all stb/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug/glad
+
+build glad/all: phony glad/libglad.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw
+
+build glfw/all: phony glfw/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug/glfw/src
+
+build glfw/src/all: phony glfw/src/libglfw3.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug/glm
+
+build glm/all: phony glm/glm/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug/glm/glm
+
+build glm/glm/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Code/C++/ProceduralTerrain/cmake-build-debug/stb
+
+build stb/all: phony stb/libstb.a
 
 # =============================================================================
 # Built-in targets
@@ -121,14 +957,14 @@ build all: phony ProceduralTerrain.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompilerABI.c C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCCompiler.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystem.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestRCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../glad/CMakeLists.txt ../glfw/CMakeLists.txt ../glfw/CMake/cmake_uninstall.cmake.in ../glfw/CMake/glfw3.pc.in ../glfw/CMake/glfw3Config.cmake.in ../glfw/src/CMakeLists.txt ../glm/CMakeLists.txt ../glm/glm/CMakeLists.txt ../stb/CMakeLists.txt C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDependentOption.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CheckIncludeFile.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CheckLibraryExists.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindDoxygen.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindPackageMessage.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindThreads.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/GNUInstallDirs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompilerABI.c C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCCompiler.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystem.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestRCCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../glad/CMakeLists.txt ../glfw/CMakeLists.txt ../glfw/CMake/cmake_uninstall.cmake.in ../glfw/CMake/glfw3.pc.in ../glfw/CMake/glfw3Config.cmake.in ../glfw/src/CMakeLists.txt ../glm/CMakeLists.txt ../glm/glm/CMakeLists.txt ../stb/CMakeLists.txt C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDependentOption.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CheckIncludeFile.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CheckLibraryExists.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindDoxygen.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindPackageMessage.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/FindThreads.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/GNUInstallDirs.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake C$:/Users/bklot/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake: phony
 
 
 #############################################

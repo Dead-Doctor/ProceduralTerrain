@@ -39,6 +39,63 @@ rule CUSTOM_COMMAND
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__glfw_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__glfw_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__glad_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__glad_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__stb_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\g++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX static library.
+
+rule CXX_STATIC_LIBRARY_LINKER__stb_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\cmake\win\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Users\bklot\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5787.29\bin\mingw\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+  description = Linking CXX static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE

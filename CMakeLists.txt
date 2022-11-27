@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.22)
 project(ProceduralTerrain)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ProceduralTerrain main.cpp)
+add_executable(ProceduralTerrain main.cpp shaderClass.h shaderClass.cpp VBO.cpp VBO.h EBO.cpp EBO.h VAO.cpp VAO.h Texture.cpp Texture.h)
+
+add_subdirectory(glfw)
+add_subdirectory(glad)
+add_subdirectory(glm)
+add_subdirectory(stb)
+
+target_include_directories(ProceduralTerrain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/glfw/include)
+target_link_libraries(ProceduralTerrain glfw glad glm stb)
