@@ -11,6 +11,8 @@
 #include "EBO.h"
 #include "Texture.h"
 #include "Camera.h"
+
+//#define WIREFRAME
 //#define SHOW_FPS
 
 #define WIDTH 800
@@ -44,12 +46,12 @@ int main() {
     glViewport(0, 0, WIDTH, HEIGHT);
 
     GLfloat vertices[] = {
-    /*   POSITION               COLOR                 UV          */
-        -0.5f,  0.0f,  0.5f,     0.83f, 0.70f, 0.44f,     0.0f, 0.0f,
-        -0.5f,  0.0f, -0.5f,     0.83f, 0.70f, 0.44f,     5.0f, 1.0f,
-         0.5f,  0.0f, -0.5f,     0.83f, 0.70f, 0.44f,     0.0f, 1.0f,
-         0.5f,  0.0f,  0.5f,     0.83f, 0.70f, 0.44f,     5.0f, 0.0f,
-         0.0f,  0.8f,  0.0f,     0.92f, 0.86f, 0.76f,     2.5f, 5.0f,
+    /*   POSITION                COLOR                 */
+        -0.5f,  0.0f,  0.5f,     0.83f, 0.70f, 0.44f,
+        -0.5f,  0.0f, -0.5f,     0.83f, 0.70f, 0.44f,
+         0.5f,  0.0f, -0.5f,     0.83f, 0.70f, 0.44f,
+         0.5f,  0.0f,  0.5f,     0.83f, 0.70f, 0.44f,
+         0.0f,  0.8f,  0.0f,     0.92f, 0.86f, 0.76f,
     };
 
     GLuint indices[] = {
@@ -69,18 +71,16 @@ int main() {
     VBO VBO1(vertices, sizeof(vertices));
     EBO EBO1(indices, sizeof(indices));
 
-    VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 8 * sizeof(float), (void *) 0); // pos
-    VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 8 * sizeof(float), (void *) (3 * sizeof(float))); // color
-    VAO1.LinkAttrib(VBO1, 2, 2, GL_FLOAT, 8 * sizeof(float), (void *) (6 * sizeof(float))); // uv
+    VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void *) 0); // pos
+    VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void *) (3 * sizeof(float))); // color
 
     VAO1.Unbind();
     VBO1.Unbind();
     EBO1.Unbind();
 
-    // Texture
-    Texture texture1("resources/textures/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
-    Texture::uv(shaderProgram, "tex0", 0);
-
+#ifdef WIREFRAME
+    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+#endif //WIREFRAME
     // Set Clear Color
     glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 
@@ -108,8 +108,6 @@ int main() {
 
         camera.matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
-        texture1.Bind();
-
         VAO1.Bind();
 
         glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(int), GL_UNSIGNED_INT, nullptr);
@@ -123,7 +121,6 @@ int main() {
     VAO1.Delete();
     VBO1.Delete();
     EBO1.Delete();
-    texture1.Delete();
     shaderProgram.Delete();
 
     // Destroy Window
