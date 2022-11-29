@@ -9,12 +9,12 @@
 class Texture {
 public:
     GLuint ID;
-    GLenum type;
+    const char* type;
     GLuint unit;
 
-    Texture(const char *image, GLenum texType, GLuint slot, GLenum format, GLenum pixelType);
+    Texture(const char *image, const char* texType, GLuint slot, GLenum format, GLenum pixelType);
 
-    static void uv(Shader &shader, const char *uniform, GLuint unit);
+    static void Unit(Shader &shader, const char *uniform, GLuint unit);
     void Bind() const;
     void Unbind() const;
     void Delete();
