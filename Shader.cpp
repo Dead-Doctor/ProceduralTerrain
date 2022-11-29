@@ -32,19 +32,12 @@ Shader::Shader(const char *file) {
         searchStart = result.suffix().first;
     }
 
-    if (vertexSource.empty() || fragmentSource.empty()) {
-        string shadersMissing;
-        if (vertexSource.empty()) {
-            if (fragmentSource.empty()) {
-                shadersMissing = "vertex and fragment shader";
-            } else {
-                shadersMissing = "vertex shader";
-            }
-        } else {
-            shadersMissing = "fragment shader";
-        }
-
-        cout << "Error: Missing " << shadersMissing << endl;
+    if (vertexSource.empty()) {
+        cout << "Error: Missing vertex shader" << endl;
+        throw;
+    }
+    if (fragmentSource.empty()) {
+        cout << "Error: Missing fragment shader" << endl;
         throw;
     }
 
