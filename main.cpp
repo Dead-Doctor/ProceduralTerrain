@@ -100,7 +100,7 @@ int main() {
         Texture("resources/textures/planksSpec.png", "specular", 1, GL_RED, GL_UNSIGNED_BYTE)
     };
 
-    Shader shaderProgram("resources/shaders/default.vert", "resources/shaders/default.frag");
+    Shader shaderProgram("resources/shaders/default.glsl");
 
     std::vector <Vertex> vertexVector(vertices, vertices + sizeof(vertices) / sizeof(Vertex));
     std::vector <GLuint> indexVector(indices, indices + sizeof(indices) / sizeof(GLuint));
@@ -109,7 +109,7 @@ int main() {
     Mesh floor(vertexVector, indexVector, textureVector);
 
     // Shader for light cube
-    Shader lightShader("resources/shaders/light.vert", "resources/shaders/light.frag");
+    Shader lightShader("resources/shaders/light.glsl");
     // Store mesh data in vectors for the mesh
     std::vector <Vertex> lightVertexVector(lightVertices, lightVertices + sizeof(lightVertices) / sizeof(Vertex));
     std::vector <GLuint> lightIndexVector(lightIndices, lightIndices + sizeof(lightIndices) / sizeof(GLuint));

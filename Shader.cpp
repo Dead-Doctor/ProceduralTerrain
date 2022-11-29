@@ -12,20 +12,51 @@ string readFile(const char *filename) {
     }
 }
 
-Shader::Shader(const char *vertexFile, const char *fragmentFile) {
-    string vertexCode = readFile(vertexFile);
-    string fragmentCode = readFile(fragmentFile);
+Shader::Shader(const char *file) {
+    string source = readFile(file);
+    regex regexp("#type +([a-z]+) *\n((?:.|\n)*?(?=(?:#type|$)))");
 
-    const char *vertexSource = vertexCode.c_str();
-    const char *fragmentSource = fragmentCode.c_str();
+
+    string vertexSource;
+    string fragmentSource;
+
+    smatch result;
+    string::const_iterator searchStart(source.cbegin());
+    while (regex_search(searchStart, source.cend(), result, regexp) )
+    {
+        if (result[1] == "vertex") {
+            vertexSource = result[2].str();
+        } else if (result[1] == "fragment") {
+            fragmentSource = result[2].str();
+        }
+        searchStart = result.suffix().first;
+    }
+
+    if (vertexSource.empty() || fragmentSource.empty()) {
+        string shadersMissing;
+        if (vertexSource.empty()) {
+            if (fragmentSource.empty()) {
+                shadersMissing = "vertex and fragment shader";
+            } else {
+                shadersMissing = "vertex shader";
+            }
+        } else {
+            shadersMissing = "fragment shader";
+        }
+
+        cout << "Error: Missing " << shadersMissing << endl;
+        throw;
+    }
 
     // Create Shader Objects
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
     // Upload Shader Sources
-    glShaderSource(vertexShader, 1, &vertexSource, nullptr);
-    glShaderSource(fragmentShader, 1, &fragmentSource, nullptr);
+    const char *vertexCString = vertexSource.c_str();
+    const char *fragmentCString = fragmentSource.c_str();
+    glShaderSource(vertexShader, 1, &vertexCString, nullptr);
+    glShaderSource(fragmentShader, 1, &fragmentCString, nullptr);
 
     // Compiler Shader Sources
     glCompileShader(vertexShader);

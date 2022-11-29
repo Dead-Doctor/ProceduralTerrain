@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <regex>
 #include "glad/glad.h"
 
 using namespace std;
@@ -17,7 +18,7 @@ class Shader {
 public:
     GLuint ID;
 
-    Shader(const char *vertexFile, const char *fragmentFile);
+    Shader(const char *file);
     void Activate() const;
     void Delete() const;
     static void compileErrors(unsigned int shader, const char *type);
